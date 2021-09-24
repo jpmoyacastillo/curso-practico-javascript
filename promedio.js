@@ -20,3 +20,42 @@ function calcularMediaAritmetica(lista) {
     const promedioLista = sumaLista / lista.length;
     return promedioLista;
 }
+
+const notas = [
+    {
+        curso: "HTML",
+        nota: 10,
+        creditos: 2,
+    },
+    {
+        curso: "CSS",
+        nota: 8,
+        creditos: 5,
+    },
+    {
+        curso: "JavaScript",
+        nota: 7,
+        creditos: 5,
+    }
+]
+
+const notasPorCredito = notas => notas.nota * notas.creditos;
+const notasConCredito = notas.map(notasPorCredito);
+
+const sumaNotasConCredito = notasConCredito.reduce(
+    function (sum = 0, nuevoValor) {
+        return sum + nuevoValor;
+    }
+);
+
+const creditos = notas.map(function (notas) {
+    return notas.creditos;
+});
+
+const sumaCreditos = creditos.reduce(
+    function (sum = 0, nuevoValor) {
+        return sum + nuevoValor;
+    }
+);
+
+const promedioPonderadoNotasConCreditos = sumaNotasConCredito / sumaCreditos;
